@@ -1,6 +1,6 @@
 # [kaggle-brain-tumor](https://www.kaggle.com/c/rsna-miccai-brain-tumor-radiogenomic-classification)
 
-![schedule](assets/diagram.mmd.svg)
+![schedule](assets/diagram.png)
 
 ## Overview
 
@@ -28,7 +28,7 @@ vi assets/diagram.mmd
 
 ```
 rm -f assets/diagram.mmd.svg
-docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd
+docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o diagram.png
 ```
 
 ## Docs
