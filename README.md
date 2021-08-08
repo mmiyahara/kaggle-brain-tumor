@@ -27,8 +27,8 @@ vi assets/diagram.mmd
 - Build
 
 ```
-rm -f assets/diagram.mmd.svg
-docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o diagram.png
+rm -f assets/diagram.png
+docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o /data/diagram.png
 ```
 
 ## Docs
