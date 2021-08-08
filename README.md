@@ -33,17 +33,30 @@ docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o
 
 ## Docs
 
-| Title                                                                                                                                                     | Status  | Comment |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------- |
-| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments)                       | Not yet |         |
-| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                                                    | Not yet |         |
-| [EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics)                          | Not yet |         |
-| [Brain Tumor Radiogenomic Classification - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398) | Not yet |         |
+| Title                                                                                                                                                     | Status  | Comment                                                                               |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------- |
+| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments)                       | READ    | Colab にデータセットをダウンロード、無料版ではデータサイズ上限により Colab は使用不可 |
+| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                                                    | Not yet |                                                                                       |
+| [EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics)                          | Not yet |                                                                                       |
+| [Brain Tumor Radiogenomic Classification - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398) | Not yet |                                                                                       |
 
 ## Diary
 
 ### 2021/08/08
 
-- Started
 - 概要読んでローカルにダウンロードしようとしたけどデータセット大きすぎる & 画像データなのでローカルで捌ききれないと判断
-  - Google Colab でやる
+  - Google Colab で試したが、無料版のディスク容量ではデータセットを保存できない
+  - Kaggle Notebook で
+- 提出するファイルは以下（`submission.csv`）
+
+  | BraTS21ID | MGMT_value |
+  | --------- | ---------- |
+  | 1         | 0          |
+  | 2         | 1          |
+  | 3         | 0          |
+  | ...       | ...        |
+
+  - `BraTS21ID`: 患者 ID
+  - `MGMT_value`
+    - `0`: MGMT プロモーターがメチル化されていない
+    - `1`: MGMT プロモーターがメチル化されている
