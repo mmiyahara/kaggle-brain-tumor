@@ -33,12 +33,13 @@ docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o
 
 ## Docs
 
-| Title                                                                                                                                                     | Status  | Comment                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------- |
-| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments)                       | READ    | Colab にデータセットをダウンロード、無料版ではデータサイズ上限により Colab は使用不可 |
-| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                                                    | Not yet |                                                                                       |
-| [EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics)                          | Not yet |                                                                                       |
-| [Brain Tumor Radiogenomic Classification - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398) | Not yet |                                                                                       |
+| Title                                                                                                                               | Status  | Comment                                                              |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------- |
+| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments) | READ    | Colab で分析するチュートリアル、データサイズ上限により無料版では不可 |
+| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                              | READ    | 画像の表示方法と `SliceLocation` について参考になった                |
+| [EDA+3D-Baseline](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics)                                  | Not yet |                                                                      |
+| [Create 3D NPZ & TFRecords](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)                       | Not yet |                                                                      |
+| [Brain Tumor - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398)       | Not yet |                                                                      |
 
 ## Diary
 
@@ -57,6 +58,73 @@ docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o
   | ...       | ...        |
 
   - `BraTS21ID`: 患者 ID
-  - `MGMT_value`
-    - `0`: MGMT プロモーターがメチル化されていない
-    - `1`: MGMT プロモーターがメチル化されている
+  - `MGMT_value` - `0`: MGMT プロモーターがメチル化されていない - `1`: MGMT プロモーターがメチル化されている
+
+### 2021/08/09
+
+- [2021/08/09 Brain Tumor - Count # of images](https://www.kaggle.com/mstkmyhr/2021-08-09-brain-tumor-count-of-images)
+
+  - 患者 id ごとに 4 種類の MRI 画像が含まれている
+  - MRI 画像の数は患者ごとにばらばら
+
+  ![count](assets/20210809_count.png)
+
+  - 各 MRI 画像のファイル数の分布。
+
+  ![histogram](assets/20210809_histogram.png)
+
+- [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version) を読んだ
+
+  - DICOM = MRI 含む医療用画像の保存形式
+  - [pydicom](https://pydicom.github.io/pydicom/stable/old/getting_started.html) = DICOM 形式のファイルを扱う Python パッケージ
+  - 画像の表示方法がわかった（[2021/08/09 Brain Tumor - See MRI Images](https://www.kaggle.com/mstkmyhr/2021-08-09-brain-tumor-see-mri-images)で試した）
+  - ファイル番号 != 時系列 な場合がある。`.dcm` ファイルの `SliceLocation` でソートすると時系列に並ぶ
+    （断面図を上から撮影していくが、上の断面図から下の断面図の順に並べることができる）
+
+- [2021/08/09 Brain Tumor - See MRI Images](https://www.kaggle.com/mstkmyhr/2021-08-09-brain-tumor-see-mri-images)
+
+  - メチル化患者の FLAIR で右上が光る傾向がある？と思ったが、
+    False(id = 803) でも右上が光っているのでそうでもない
+
+- [2021/08/09 Brain Tumor - Attributes](https://www.kaggle.com/mstkmyhr/2021-08-09-brain-tumor-attributes)
+
+  - 断面図を上から下の順に並べるには、たしかに `SliceLocation` で良さそう（`ImagePositionPatient` の y 軸でも同じ）
+    ```
+      AccessionNumber:00000
+      ...
+      ImageOrientationPatient:[1, -0, 0, -0, -0, -1]
+    - ImagePositionPatient:[-125.094, 30.9865, 127.74]
+    ?                                    ^
+    + ImagePositionPatient:[-125.094, 30.3865, 127.74]
+    ?                                    ^
+      ImageType:['DERIVED', 'SECONDARY']
+      ...
+    - InStackPositionNumber:52
+    ?                        ^
+    + InStackPositionNumber:53
+    ?                        ^
+    - InstanceNumber:100
+    ?                  ^
+    + InstanceNumber:101
+    ?                  ^
+      ...
+    - SOPInstanceUID:1.2.826.0.1.3680043.8.498.10904131910506455574025613086762249469
+    + SOPInstanceUID:1.2.826.0.1.3680043.8.498.39056959140773619321268443511349211124
+      ...
+    - SliceLocation:-30.9865036
+    ?                   ^     ^
+    + SliceLocation:-30.38650131
+    ?                   ^    + ^
+      ...
+    - WindowCenter:1172
+    ?                ^^
+    + WindowCenter:1148
+    ?                ^^
+    - WindowWidth:2344
+    ?              ^^^
+    + WindowWidth:2297
+    ?              ^^^
+    ```
+
+- [Create 3D NPZ & TFRecords – RSNA – Radiogenomics](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)
+- [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook)
