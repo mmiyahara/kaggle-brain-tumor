@@ -126,5 +126,10 @@ docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o
     ?              ^^^
     ```
 
+### 2021/08/10
+
 - [Create 3D NPZ & TFRecords – RSNA – Radiogenomics](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)
+  - [2021/08/10 Brain Tumor - Code Kata | Kaggle](https://www.kaggle.com/mstkmyhr/2021-08-10-brain-tumor-code-kata/edit) で写経する
+  - `2 SETUP` まで完了、`3 HELPER FUNCTIONS` から
 - [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook)
+
