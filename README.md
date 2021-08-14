@@ -14,22 +14,22 @@
 
 - Init
 
-```
-docker pull minlag/mermaid-cli
-```
+  ```
+  docker pull minlag/mermaid-cli
+  ```
 
 - Edit
 
-```
-vi assets/diagram.mmd
-```
+  ```
+  vi assets/diagram.mmd
+  ```
 
 - Build
 
-```
-rm -f assets/diagram.png
-docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o /data/diagram.png
-```
+  ```
+  rm -f assets/diagram.png
+  docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o /data/diagram.png
+  ```
 
 ## Docs
 
@@ -58,7 +58,9 @@ docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o
   | ...       | ...        |
 
   - `BraTS21ID`: 患者 ID
-  - `MGMT_value` - `0`: MGMT プロモーターがメチル化されていない - `1`: MGMT プロモーターがメチル化されている
+  - `MGMT_value`
+    - `0`: MGMT プロモーターがメチル化されていない
+    - `1`: MGMT プロモーターがメチル化されている
 
 ### 2021/08/09
 
@@ -75,11 +77,11 @@ docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o
 
 - [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version) を読んだ
 
-  - DICOM = MRI 含む医療用画像の保存形式
-  - [pydicom](https://pydicom.github.io/pydicom/stable/old/getting_started.html) = DICOM 形式のファイルを扱う Python パッケージ
+  - DICOM: MRI 含む医療用画像の保存形式
+  - [pydicom](https://pydicom.github.io/pydicom/stable/old/getting_started.html): DICOM 形式のファイルを扱う Python パッケージ
   - 画像の表示方法がわかった（[2021/08/09 Brain Tumor - See MRI Images](https://www.kaggle.com/mstkmyhr/2021-08-09-brain-tumor-see-mri-images)で試した）
   - ファイル番号 != 時系列 な場合がある。`.dcm` ファイルの `SliceLocation` でソートすると時系列に並ぶ
-    （断面図を上から撮影していくが、上の断面図から下の断面図の順に並べることができる）
+    （MRI では断面図を上から撮影していく。`SliceLocation` でソートすると断面図を上から下に並べることができる）
 
 - [2021/08/09 Brain Tumor - See MRI Images](https://www.kaggle.com/mstkmyhr/2021-08-09-brain-tumor-see-mri-images)
 
@@ -131,5 +133,36 @@ docker run -it -v $(pwd)/assets:/data minlag/mermaid-cli -i /data/diagram.mmd -o
 - [Create 3D NPZ & TFRecords – RSNA – Radiogenomics](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)
   - [2021/08/10 Brain Tumor - Code Kata | Kaggle](https://www.kaggle.com/mstkmyhr/2021-08-10-brain-tumor-code-kata/edit) で写経する
   - `2 SETUP` まで完了、`3 HELPER FUNCTIONS` から
-- [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook)
 
+### 2021/08/11
+
+- [Create 3D NPZ & TFRecords – RSNA – Radiogenomics](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)
+  - [2021/08/10 Brain Tumor - Code Kata | Kaggle](https://www.kaggle.com/mstkmyhr/2021-08-10-brain-tumor-code-kata/edit) で写経する
+  - `3 HELPER FUNCTIONS` の途中まで
+
+### 2021/08/14
+
+- [Create 3D NPZ & TFRecords – RSNA – Radiogenomics](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)
+
+  - `apply_voi_lut` ってなに？
+
+    - [LUT](http://ismini.tvlogic.tv/jp/technology/lutindex.html): あらかじめ用意したテーブルを使った色変換
+    - [医療におけるデジタル画像と通信（DICOM）](https://www.jira-net.or.jp/dicom/file/standard/P03_11_j_BODY&Annex_A&B_20130409A.pdf)
+      > VOI LUT IE は，モダリティ画素値のプリント，表示，などのために意味がある画素値への変換を記述する属性を定義する。
+
+    -> 画像変換のためにピクセル変換するメソッドっぽい。
+
+  - `get_numpy_arr`
+
+    ```python
+    # DICOM 画像 1 枚が ref_dicom.Rows x ref_dicom.Columns で構成され、
+    # 画像が len(dicom_paths) 枚あるってこと？
+    original_img_dims = (int(ref_dicom.Rows), int(ref_dicom.Columns), len(dicom_paths))
+    ```
+
+    ```python
+    # DICOM 画像 1 枚ずつが、x, y 軸に何mmずつ撮影されているか？
+    px_spacing = (float(ref_dicom.PixelSpacing[0]), float(ref_dicom.PixelSpacing[1]), float(ref_dicom.SliceThickness))
+    ```
+
+    ![pixel spacing](assets/20210815_pixel_spacing.png)
