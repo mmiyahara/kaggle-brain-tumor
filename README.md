@@ -345,6 +345,12 @@
       NumPy としてデータ加工したい場合は、CPU 上で処理してからテンソルに変換し、
       GPU に乗せるのが良い？
 
+## 2021/09/08
+
+- [PyTorch チュートリアル（日本語翻訳版）](https://yutaroogawa.github.io/pytorch_tutorials_jp/)
+  - [データセットとデータローダー（Datasets & DataLoaders）](https://colab.research.google.com/github/YutaroOgawa/pytorch_tutorials_jp/blob/main/notebook/0_Learn%20the%20Basics/0_2_data_tutorial_jp.ipynb)
+    `__init__`、`__len__`、`__getitem__` を実装した Dataset を作り、DataLoader でバッチ処理を行う。
+
 ## 疑問
 
 - 各層はどうやって決める？ある程度決まったパターンがある？  
