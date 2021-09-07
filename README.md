@@ -33,18 +33,20 @@
 
 ## Docs
 
-| Title                                                                                                                               | Read       | Comment                                                              |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------------------- |
-| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments) | 2021/08/08 | Colab で分析するチュートリアル、データサイズ上限により無料版では不可 |
-| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                              | 2021/08/09 | 画像の表示方法と `SliceLocation` について参考になった                |
-| [Create 3D NPZ & TFRecords](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)                       | 2021/08/15 | DICOM 画像を圧縮した 3 次元のバイナリデータで扱う方法                |
-| [EDA+3D-Baseline](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics)                                  | Not yet    |                                                                      |
-| [Brain Tumor - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398)       | Not yet    |                                                                      |
-| [Brain Tumor🧠 - EDA with Animations and Modeling](https://www.kaggle.com/ihelon/brain-tumor-eda-with-animations-and-modeling/data) | Not yet    |                                                                      |
-| [Brain Tumor very basice inference](https://www.kaggle.com/lucamtb/brain-tumor-very-basice-inference)                               | Not yet    |                                                                      |
-| [Efficientnet3D with one MRI type](https://www.kaggle.com/rluethy/efficientnet3d-with-one-mri-type)                                 | Not yet    |                                                                      |
-| [RSNA-MICCAI competition](https://www.kaggle.com/d223chen/rsna-miccai-competition)                                                  | Not yet    |                                                                      |
-| [[RF] Brain Tumor (FLAIR)](https://www.kaggle.com/hiroshisakiyama/rf-brain-tumor-flair)                                             | Not yet    |                                                                      |
+| Title                                                                                                                                                    | Read       | Comment                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------------------- |
+| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments)                      | 2021/08/08 | Colab で分析するチュートリアル、データサイズ上限により無料版では不可 |
+| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                                                   | 2021/08/09 | 画像の表示方法と `SliceLocation` について参考になった                |
+| [Create 3D NPZ & TFRecords](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)                                            | 2021/08/15 | DICOM 画像を圧縮した 3 次元のバイナリデータで扱う方法                |
+| [ゼロから作る Deep Learning](https://www.oreilly.co.jp/books/9784873117584/)                                                                             | 2021/08/29 | Deep Learning の基礎と CNN の触り部分を理解した                      |
+| [10 分で学ぶ NumPy 速習チュートリアル](https://deepage.net/features/numpy-numpy.html)                                                                    | 2021/09/04 | NumPy についておさらい                                               |
+| [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook#modelling) | 2021/09/05 | データセットの作り方、`tf.keras` での学習                            |
+| [Brain Tumor - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398)                            | 2021/09/05 | ↑ のノートブックの方が色々と詳しい。特になし                         |
+| [Brain Tumor🧠 - EDA with Animations and Modeling](https://www.kaggle.com/ihelon/brain-tumor-eda-with-animations-and-modeling/data)                      | Not yet    |                                                                      |
+| [Brain Tumor very basice inference](https://www.kaggle.com/lucamtb/brain-tumor-very-basice-inference)                                                    | Not yet    |                                                                      |
+| [Efficientnet3D with one MRI type](https://www.kaggle.com/rluethy/efficientnet3d-with-one-mri-type)                                                      | Not yet    |                                                                      |
+| [RSNA-MICCAI competition](https://www.kaggle.com/d223chen/rsna-miccai-competition)                                                                       | Not yet    |                                                                      |
+| [[RF] Brain Tumor (FLAIR)](https://www.kaggle.com/hiroshisakiyama/rf-brain-tumor-flair)                                                                  | Not yet    |                                                                      |
 
 ## Diary
 
@@ -241,4 +243,110 @@
 - [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics | Kaggle](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook#modelling)
   - Keras のチュートリアルを試した。
   - モデルの作り方はなんとなくわかったけど、そもそも NumPy でのデータの扱いが苦手。
-- [Python での数値計算ライブラリ NumPy 徹底入門 - DeepAge](https://deepage.net/features/numpy/)[Python での数値計算ライブラリ NumPy 徹底入門 - DeepAge](https://deepage.net/features/numpy/)
+
+### 2021/09/04
+
+- [Python での数値計算ライブラリ NumPy 徹底入門 - DeepAge](https://deepage.net/features/numpy/)
+- [TensorFlow チュートリアル](https://www.tensorflow.org/tutorials?hl=ja)
+  - 入門者向けに一通り目を通した
+- [TensorFlow で使えるデータセット機能が強かった話 - Qiita](https://qiita.com/Suguru_Toyohara/items/820b0dad955ecd91c7f3)
+  - [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics | Kaggle](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook#modelling) で `tf.data.Dataset` を使っていて、よくわからなかったので勉強。
+
+### 2021/09/05
+
+- [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics | Kaggle](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook#modelling) のデータセット作成部分を理解した。[210904_playground.ipynb](notebooks/210904_playground.ipynb) 参照。
+- `model.summary()` は以下の通り
+
+  ```
+  ... EXAMPLE PREDICTION ...
+
+  [[0.30933473]]
+
+
+  ... MODEL SUMMARY ...
+
+  Model: "3d_mpmri_cnn"
+  _________________________________________________________________
+  Layer (type)                 Output Shape              Param #
+  =================================================================
+  input_1 (InputLayer)         [(None, 128, 128, 32, 1)] 0
+  _________________________________________________________________
+  conv3d (Conv3D)              (None, 126, 126, 30, 64)  1792
+  _________________________________________________________________
+  max_pooling3d (MaxPooling3D) (None, 63, 63, 15, 64)    0
+  _________________________________________________________________
+  batch_normalization (BatchNo (None, 63, 63, 15, 64)    256
+  _________________________________________________________________
+  conv3d_1 (Conv3D)            (None, 61, 61, 13, 64)    110656
+  _________________________________________________________________
+  max_pooling3d_1 (MaxPooling3 (None, 30, 30, 6, 64)     0
+  _________________________________________________________________
+  batch_normalization_1 (Batch (None, 30, 30, 6, 64)     256
+  _________________________________________________________________
+  conv3d_2 (Conv3D)            (None, 28, 28, 4, 128)    221312
+  _________________________________________________________________
+  batch_normalization_2 (Batch (None, 28, 28, 4, 128)    512
+  _________________________________________________________________
+  conv3d_3 (Conv3D)            (None, 26, 26, 2, 256)    884992
+  _________________________________________________________________
+  batch_normalization_3 (Batch (None, 26, 26, 2, 256)    1024
+  _________________________________________________________________
+  dropout (Dropout)            (None, 26, 26, 2, 256)    0
+  _________________________________________________________________
+  global_average_pooling3d (Gl (None, 256)               0
+  _________________________________________________________________
+  dense (Dense)                (None, 128)               32896
+  _________________________________________________________________
+  dropout_1 (Dropout)          (None, 128)               0
+  _________________________________________________________________
+  dense_1 (Dense)              (None, 1)                 129
+  =================================================================
+  Total params: 1,253,825
+  Trainable params: 1,252,801
+  Non-trainable params: 1,024
+  _________________________________________________________________
+  ```
+
+## 2021/09/06
+
+- [2019 年最強の画像認識モデル EfficientNet 解説 - Qiita](https://qiita.com/omiita/items/83643f78baabfa210ab1)
+  - Kaggle Notebook 見る限りよく使われてる。
+  - パラメータ数が少なく（≒ 学習に必要なコンピューティングリソースが少なくて済む）、
+    転移学習（≒ 別用途での学習済みモデルを他の学習に転用可能）にも向いている、
+    モデルの「深さ」と「広さ」と「解像度(=入力画像の大きさ)」を調整するモデル。
+
+## 2021/09/07
+
+- Public Score 1.00 が数人いるが、test 用データが 87 人分しかないので `2 ** 87` を当てれば 1.00 になる。
+  - shakedown するはずだから問題なし
+- [白黒はっきりしない判定の評価のしかた 〜ROC 曲線と AUC〜](https://www.cresco.co.jp/blog/entry/15337/)
+  - わかりやすい！
+- [Brain Tumor🧠 - EDA with Animations and Modeling](https://www.kaggle.com/ihelon/brain-tumor-eda-with-animations-and-modeling/data)
+
+  - `class Model` で `efficientnet-b0` を使用している
+    -> b1 - b7 までモデルの大きさを変えれば精度が上がりそう
+    モデルの大きさを上げれば上げるほど、学習に時間はかかりそう
+    npz ファイルに保存して、別環境(Google Colab など)で学習させたモデルを適用するとか？
+
+  - `class DataRetriever` で、画像を 1/10 に間引いている
+    -> 使用する画像数を増やせば精度が上がりそう
+
+  - `class Trainer.fit` のモデル保存ロジックがおかしい？
+    Epoch ごとに `best-model-0.pth` を上書きしているような
+
+- `torch.nn`、`torch.nn.function`、`torch.utils.data`、`efficientnet_pytorch` あたりの実装を調べる
+
+  - [PyTorch チュートリアル（日本語翻訳版）](https://yutaroogawa.github.io/pytorch_tutorials_jp/)
+
+    - [テンソル（Tensors）](https://colab.research.google.com/github/YutaroOgawa/pytorch_tutorials_jp/blob/main/notebook/0_Learn%20the%20Basics/0_1_tensors_tutorial_js.ipynb)
+
+      > CPU 上のテンソルと NumPy arrays は同じメモリを共有しており、相互変換が容易
+
+      NumPy としてデータ加工したい場合は、CPU 上で処理してからテンソルに変換し、
+      GPU に乗せるのが良い？
+
+## 疑問
+
+- 各層はどうやって決める？ある程度決まったパターンがある？  
+  それともトライアンドエラーしかない？
+  - EfficientNet や SENet のように、各研究機関が用途別にモデルを作成してる
