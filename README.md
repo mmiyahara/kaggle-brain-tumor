@@ -351,6 +351,51 @@
   - [データセットとデータローダー（Datasets & DataLoaders）](https://colab.research.google.com/github/YutaroOgawa/pytorch_tutorials_jp/blob/main/notebook/0_Learn%20the%20Basics/0_2_data_tutorial_jp.ipynb)
     `__init__`、`__len__`、`__getitem__` を実装した Dataset を作り、DataLoader でバッチ処理を行う。
 
+## 2021/09/09
+
+- [PyTorch チュートリアル（日本語翻訳版）](https://yutaroogawa.github.io/pytorch_tutorials_jp/)
+
+  - [データ変換（Transforms）](https://colab.research.google.com/github/YutaroOgawa/pytorch_tutorials_jp/blob/main/notebook/0_Learn%20the%20Basics/0_3_transforms_tutorial_jp.ipynb?authuser=3#scrollTo=O4VboPaL6HsB)
+
+  `torch.scatter_()` の挙動が理解しにくかった。
+
+  - `dim`: データを入れ込む方向
+  - `index`: `self` のどの位置に `src` の値を入れ込むか
+  - `src`: 入れ込むデータ
+  - [Understand torch.scatter*(). First, note that scatter*() is an… | by Yu Yang | Medium](https://yuyangyy.medium.com/understand-torch-scatter-b0fd6275331c) がわかりやすい。
+
+  ```python
+  import torch
+  src = torch.arange(1, 6).reshape(1, 5)
+  index = torch.tensor([[0, 1, 2, 1, 0]])
+  print("# self")
+  display(torch.zeros(3, 5))
+  print("- "*20)
+  print("# index")
+  display(index)
+  print("- "*20)
+  print("# src")
+  display(src)
+  print("- "*20)
+  print("# self.scatter_(0, index, src)")
+  display(torch.zeros(3, 5, dtype=torch.int64).scatter_(0, index, src))
+  # # self
+  # tensor([[0., 0., 0., 0., 0.],
+  #         [0., 0., 0., 0., 0.],
+  #         [0., 0., 0., 0., 0.]])
+  # - - - - - - - - - - - - - - - - - - - -
+  # # index
+  # tensor([[0, 1, 2, 1, 0]])
+  # - - - - - - - - - - - - - - - - - - - -
+  # # src
+  # tensor([[1, 2, 3, 4, 5]])
+  # - - - - - - - - - - - - - - - - - - - -
+  # # self.scatter_(0, index, src)
+  # tensor([[1, 0, 0, 0, 5],
+  #         [0, 2, 0, 4, 0],
+  #         [0, 0, 3, 0, 0]])
+  ```
+
 ## 疑問
 
 - 各層はどうやって決める？ある程度決まったパターンがある？  
