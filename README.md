@@ -396,6 +396,12 @@
   #         [0, 0, 3, 0, 0]])
   ```
 
+## 2021/09/10
+
+- [PyTorch チュートリアル（日本語翻訳版）](https://yutaroogawa.github.io/pytorch_tutorials_jp/)
+  - [モデル構築（Build Model）](https://colab.research.google.com/github/YutaroOgawa/pytorch_tutorials_jp/blob/main/notebook/0_Learn%20the%20Basics/0_4_buildmodel_tutorial_js.ipynb?authuser=3)
+    - `nn.Module` を継承したクラスを作成することで、ニューラルネットワークモデルを定義できる
+
 ## 疑問
 
 - 各層はどうやって決める？ある程度決まったパターンがある？  
