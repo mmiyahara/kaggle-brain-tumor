@@ -431,6 +431,21 @@
   - いろんな Notebook で `cv2` パッケージを見かけるので、使い方を学ぶ
     - `cv2` は OpenCV（Computer Vision: 画像認識のプロジェクト） の Python パッケージ。
 
+## 2021/09/14
+
+- [OpenCV: Basic Operations on Images](https://docs.opencv.org/master/d3/df2/tutorial_py_basic_ops.html)
+  - BGR 画像の仕組みが理解できた。
+    ```python
+    import cv2 as cv
+    b, g, r = cv.split(img) # or b = img[:, :, 0]
+    print(b.shape)
+    print(g.shape)
+    print(r.shape)
+    # (512, 512)
+    # (512, 512)
+    # (512, 512)
+    ```
+
 ## 疑問
 
 - 各層はどうやって決める？ある程度決まったパターンがある？  
