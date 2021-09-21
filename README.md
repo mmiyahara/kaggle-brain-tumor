@@ -33,20 +33,21 @@
 
 ## Docs
 
-| Title                                                                                                                                                    | Read       | Comment                                                               |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | --------------------------------------------------------------------- |
-| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments)                      | 2021/08/08 | Colab で分析するチュートリアル、データサイズ上限により無料版では不可  |
-| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                                                   | 2021/08/09 | 画像の表示方法と `SliceLocation` について参考になった                 |
-| [Create 3D NPZ & TFRecords](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)                                            | 2021/08/15 | DICOM 画像を圧縮した 3 次元のバイナリデータで扱う方法                 |
-| [ゼロから作る Deep Learning](https://www.oreilly.co.jp/books/9784873117584/)                                                                             | 2021/08/29 | Deep Learning の基礎と CNN の触り部分を理解した                       |
-| [10 分で学ぶ NumPy 速習チュートリアル](https://deepage.net/features/numpy-numpy.html)                                                                    | 2021/09/04 | NumPy についておさらい                                                |
-| [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook#modelling) | 2021/09/05 | データセットの作り方、`tf.keras` での学習                             |
-| [Brain Tumor - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398)                            | 2021/09/05 | ↑ のノートブックの方が色々と詳しい。特になし                          |
-| [Brain Tumor🧠 - EDA with Animations and Modeling](https://www.kaggle.com/ihelon/brain-tumor-eda-with-animations-and-modeling/data)                      | 2021/09/12 | PyTorch + EfficientNet を使った実装例                                 |
-| [Brain Tumor very basice inference](https://www.kaggle.com/lucamtb/brain-tumor-very-basice-inference)                                                    | Not yet    | TPU + Keras + ResNet50 からの転移学習。わかりやすそうなので後で読む。 |
-| [Efficientnet3D with one MRI type](https://www.kaggle.com/rluethy/efficientnet3d-with-one-mri-type)                                                      | Not yet    | PyTorch + EfficientNet3D + 回転による Data Augmentation               |
-| [RSNA-MICCAI competition](https://www.kaggle.com/d223chen/rsna-miccai-competition)                                                                       | Not yet    |                                                                       |
-| [[RF] Brain Tumor (FLAIR)](https://www.kaggle.com/hiroshisakiyama/rf-brain-tumor-flair)                                                                  | Not yet    |                                                                       |
+| Title                                                                                                                                                    | Read       | Comment                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Getting started with Google Colab](https://www.kaggle.com/reubenschmidt/getting-started-in-rsna-miccai-with-google-colab/comments)                      | 2021/08/08 | Colab で分析するチュートリアル、データサイズ上限により無料版では不可                                                                                                                               |
+| [EDA for starter](https://www.kaggle.com/chumajin/brain-tumor-eda-for-starter-version)                                                                   | 2021/08/09 | 画像の表示方法と `SliceLocation` について参考になった                                                                                                                                              |
+| [Create 3D NPZ & TFRecords](https://www.kaggle.com/dschettler8845/create-3d-npz-tfrecords-rsna-radiogenomics)                                            | 2021/08/15 | DICOM 画像を圧縮した 3 次元のバイナリデータで扱う方法                                                                                                                                              |
+| [ゼロから作る Deep Learning](https://www.oreilly.co.jp/books/9784873117584/)                                                                             | 2021/08/29 | Deep Learning の基礎と CNN の触り部分を理解した                                                                                                                                                    |
+| [10 分で学ぶ NumPy 速習チュートリアル](https://deepage.net/features/numpy-numpy.html)                                                                    | 2021/09/04 | NumPy についておさらい                                                                                                                                                                             |
+| [🧠🧬 EDA+3D-Baseline – RSNA – Glioma Radiogenomics](https://www.kaggle.com/dschettler8845/eda-3d-baseline-rsna-glioma-radiogenomics/notebook#modelling) | 2021/09/05 | データセットの作り方、`tf.keras` での学習                                                                                                                                                          |
+| [Brain Tumor - EDA](https://www.kaggle.com/tanlikesmath/brain-tumor-radiogenomic-classification-eda?scriptVersionId=68158398)                            | 2021/09/05 | ↑ のノートブックの方が色々と詳しい。特になし                                                                                                                                                       |
+| [Brain Tumor🧠 - EDA with Animations and Modeling](https://www.kaggle.com/ihelon/brain-tumor-eda-with-animations-and-modeling/data)                      | 2021/09/12 | PyTorch + EfficientNet を使った実装例                                                                                                                                                              |
+| [Brain Tumor very basice inference](https://www.kaggle.com/lucamtb/brain-tumor-very-basice-inference)                                                    | Not yet    | TPU + Keras + ResNet50 からの転移学習。わかりやすそうなので後で読む。                                                                                                                              |
+| [Efficientnet3D with one MRI type](https://www.kaggle.com/rluethy/efficientnet3d-with-one-mri-type)                                                      | 2021/09/18 | PyTorch + EfficientNet3D + 回転による Data Augmentation。EfficientNet3D の eval モード時に問題がある（[リンク](https://www.kaggle.com/rluethy/efficientnet3d-with-one-mri-type/comments#1507827)） |
+| [[RSNA-MICCAI] Monai - ensemble](https://www.kaggle.com/mikecho/rsna-miccai-monai-ensemble/)                                                             | 2021/09/21 | PyTorch + DenseNet121 on [MONAI](https://github.com/Project-MONAI/MONAI)                                                                                                                           |
+| [RSNA-MICCAI competition](https://www.kaggle.com/d223chen/rsna-miccai-competition)                                                                       | Not yet    |                                                                                                                                                                                                    |
+| [[RF] Brain Tumor (FLAIR)](https://www.kaggle.com/hiroshisakiyama/rf-brain-tumor-flair)                                                                  | Not yet    |                                                                                                                                                                                                    |
 
 ## Diary
 
@@ -446,8 +447,112 @@
     # (512, 512)
     ```
 
-## 疑問
+## 2021/09/18
 
-- 各層はどうやって決める？ある程度決まったパターンがある？  
-  それともトライアンドエラーしかない？
-  - EfficientNet や SENet のように、各研究機関が用途別にモデルを作成してる
+- [MONAI](https://github.com/Project-MONAI/MONAI)
+  ヘルススコア分野で採用されている PyTorch ベースのフレームワーク。
+
+- DICOM ファイルを npz ファイルに変換してからなら、Google Colab 上でも動作できそう。
+  - (128, 128, 32): 537.6 MB ([2021/08/10 Brain Tumor - Code Kata](https://www.kaggle.com/mstkmyhr/2021-08-10-brain-tumor-code-kata))
+
+## 2021/09/20
+
+- DICOM ファイルをそのまま Google Colab で扱うのはファイルサイズの関係で諦めたが、  
+  Kaggle Kernel 上で DICOM ファイルから npz ファイルに変換したら、  
+  npz ファイルを Google Colab で扱うのは可能では？と思い試してみた。
+
+- [20210918_try_colab.ipynb](https://colab.research.google.com/drive/1bPSY-X_ZUdjhwQiAqIjhVvAI1NxiJZ8S?authuser=3#scrollTo=NUOXIbR0xBbv)
+
+  - Kaggle API は実行できる
+  - 生成した npz ファイルを Dataset として保存し、Google Colab にダウンロードして  
+    `np.load_npz()` することも出来た
+  - （おそらく）今回のコンペにオフライン制限があるため、Google Colab から提出時に 400 エラーになる
+
+    ```
+    !kaggle competitions submit rsna-miccai-brain-tumor-radiogenomic-classification -f /content/submission_sample.csv -m "I submit my file through the Google Colab."
+    400 - Bad Request
+    ```
+
+  - 提出だけ Kaggle Notebook 経由でやれば、Google Colab 上で訓練、推論は可能そう
+
+- [参考: Google Colab 上で Kaggle のデータをロード、モデル訓練、提出の全てを行う - Qiita](https://qiita.com/katsu1110/items/a8d508a1b6f07bd3a243)
+- [参考: Colaboratory で分析コンペをする時のテクニック集 - kaggle 全力でやります](https://www.currypurin.com/entry/2021/03/04/070000)
+
+## 2021/09/21
+
+- [[RSNA-MICCAI] Monai - ensemble](https://www.kaggle.com/mikecho/rsna-miccai-monai-ensemble/) を深堀り
+
+  ```python
+  def natural_sort(l):
+      convert = lambda text: int(text) if text.isdigit() else text.lower()
+      alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)]
+      return sorted(l, key=alphanum_key)
+
+  def load_dicom_images_3d(scan_id, num_imgs=NUM_IMAGES, img_size=SIZE, mri_type="FLAIR", split="train"):
+      files = natural_sort(glob.glob(f"{data_directory}/{split}/{scan_id}/{mri_type}/*.dcm"))
+      # ...
+  ```
+
+  `narural_sort` の挙動について。  
+  `alphanum` でパスを分割する。（`"/path/to/00001.dcm"` -> `["/path/to", "00001", ".dcm"]`）  
+  `convert` で文字列を小文字に、数字を `int` に変換する。
+
+  Python のリストの大小比較では、まず 1 つめの要素の比較を行い、  
+  1 つめの要素が等しいときに、2 つ目の要素を比較し ... という流れで計算される。
+
+  ```python
+  >>> ["string", 2] > ["string", 1]
+  True
+  >>> ["string", 1] > ["string", 2]
+  False
+  ```
+
+  `natural_sort` では、各要素は `["/path/to", 1, ".dcm"]` のように変換され、  
+  （1 つめの要素は等しいので）2 つめの要素で大小比較され、結果として DICOM ファイルの番号順にソートされる。
+
+  ***
+
+  ```python
+  def load_dicom_images_3d(scan_id, num_imgs=NUM_IMAGES, img_size=SIZE, mri_type="FLAIR", split="train"):
+      files = natural_sort(glob.glob(f"{data_directory}/{split}/{scan_id}/{mri_type}/*.dcm"))
+
+      every_nth = len(files) / num_imgs
+      indexes = [min(int(round(i*every_nth)), len(files)-1) for i in range(0,num_imgs)]
+
+      files_to_load = [files[i] for i in indexes]
+
+      img3d = np.stack([load_dicom_image(f) for f in files_to_load]).T
+
+      img3d = img3d - np.min(img3d)
+      if np.max(img3d) != 0:
+          img3d = img3d / np.max(img3d)
+
+      return np.expand_dims(img3d,0)
+  ```
+
+  `laod_dicom_images_3d` について。  
+  `every_nth` で `実際の画像ファイル数 / 生成する画像ファイル数` を計算している。  
+  （例: ID = 1 の FLAIR DICOM データが 400 枚あり、64 枚の画像データを使いたいとき `every_nth = 400 / 64 = 6.25`）  
+  `indexes` で `実際の画像ファイルの集団（配列）から、使用する画像ファイルのインデックス` を生成している。  
+  （例: `[min(int(round(i*every_nth)), len(files)-1) for i in range(0,num_imgs)]`  
+  　-> `[min(0, 399), min(6, 399), min(13, 399), ..., min(399, 399)]`  
+  　-> `[0, 6, 13, ..., 399]`）
+  （シンプルに `[int(i*every_nth) for i in range(0,num_imgs)]` でも良いような？）
+
+  次に、`img3d` の挙動をイメージするため、手元にある npz ファイルでテストした。
+
+  ```python
+  ds_sample_1 = np.load('train/T1w/00658.npz')["arr_0"]
+  ds_flat_1 = ds_sample_1[:, :, 0]
+  ds_flat_2 = ds_sample_1[:, :, 1]
+  print(ds_sample_1.shape) # (128, 128, 32)
+  print(ds_flat_1.shape)   # (128, 128)
+  print(ds_flat_2.shape)   # (128, 128)
+  print(np.stack([ds_flat_1, ds_flat_2]).shape)   # (2, 128, 128)
+  print(np.stack([ds_flat_1, ds_flat_2]).T.shape) # (128, 128, 2)
+  print(np.expand_dims(np.stack([ds_flat_1, ds_flat_2]).T, 0).shape) # (1, 128, 128, 2)
+  ```
+
+  `np.stack` では `(新たに結合した方向の要素数, 縦, 横)` のタプルが返ってくる。  
+  転置(`.T`)することで `(横, 縦, 新たに結合した方向の要素数)` に変換している。  
+  さらに `np.expand_dims(img3d, 0)` で `(1, 横, 縦, 新たに結合した方向の要素数)` に変換している。
