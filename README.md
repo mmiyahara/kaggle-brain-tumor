@@ -556,3 +556,118 @@
   `np.stack` では `(新たに結合した方向の要素数, 縦, 横)` のタプルが返ってくる。  
   転置(`.T`)することで `(横, 縦, 新たに結合した方向の要素数)` に変換している。  
   さらに `np.expand_dims(img3d, 0)` で `(1, 横, 縦, 新たに結合した方向の要素数)` に変換している。
+
+## 2021/09/28
+
+自分のコード（0.599）と他の人のコード（0.624）を比べる。
+
+- [0.599 2021/09/17 Brain Tumor - Code Kata | Kaggle](https://www.kaggle.com/mstkmyhr/2021-09-17-brain-tumor-code-kata)
+- [0.624 [RSNA-MICCAI] Monai - ensemble | Kaggle](https://www.kaggle.com/mikecho/rsna-miccai-monai-ensemble)
+
+- 0.624 では DICOM イメージ読み込み時に `apply_voi_lut` してない
+
+- 0.624 では Data Augmentation してない
+
+  - 0.624 で Data Augmentation すればスコアが伸びるかも
+
+- 3D イメージの読み込み方法が異なる
+
+  - 0.624 では、`num_imgs` で指定した枚数の画像を使って 3D 画像を生成
+  - 0.599 では、MRI 画像の中心付近から指定した枚数を取ってきて 3D 画像を生成
+
+- 0.624 では出題者から指定があった問題のある画像（BraTS21ID = [109, 123, 709]）を除いている
+
+  > train/ - folder containing the training files, with each top-level folder representing a subject. NOTE: There are some unexpected issues with the following three cases in the training dataset, participants can exclude the cases during training: [00109, 00123, 00709]. We have checked and confirmed that the testing dataset is free from such issues.
+  > https://www.kaggle.com/c/rsna-miccai-brain-tumor-radiogenomic-classification/data
+
+- 0.624 では Label Smoothing をしていない
+
+  - 0.624 で Label Smoothing すればスコアが伸びるかも
+  - 0.599 で `self.targets is not None` の時だけ Label Smoothing しているが、これは正しい？ (TODO: 要確認)
+
+- 0.624 では学習の進行に伴って学習率の調整をしてる
+
+  ```python
+  self.lr_scheduler = torch.optim.lr_scheduler.ExponentialLR(self.optimizer, gamma=LR_DECAY)
+  ```
+
+  - [Scheduler – スーパー初心者からはじめる Deep Learning](https://wonderfuru.com/scheduler/)
+
+- 0.599 では ROC の計算方法が異なる
+
+  ```python
+  y_all = [1 if x > 0.5 else 0 for x in y_all] # 0.624 ではこの記述がない
+  auc = roc_auc_score(y_all, outputs_all)
+  ```
+
+  - TODO: 要確認
+  - [scikit-learn で ROC 曲線とその AUC を算出 | note.nkmk.me](https://note.nkmk.me/python-sklearn-roc-curve-auc-score/)
+
+- 0.624 では xxx_loader で `pin_memory=True` を指定していない
+
+  - 学習結果には影響しなさそう(TODO: 下記確認)
+  - [PyTorch での学習・推論を高速化するコツ集 - Qiita](https://qiita.com/sugulu_Ogawa_ISID/items/62f5f7adee083d96a587)
+
+- 定数は？
+
+  - 0.624
+
+    ```
+    SIZE = 256
+    NUM_IMAGES = 64
+    BATCH_SIZE = 4
+    N_EPOCHS = 16
+    SEED = 12345
+    LEARNING_RATE = 0.0005
+    LR_DECAY = 0.9
+    ```
+
+  - 0.599
+
+    ```
+    SIZE = 256
+    NUM_IMAGES=64
+    BATCH_SIZE = 4
+    N_EPOCHS = 10
+    SEED = 12
+    LEARNING_RATE = 0.001
+    LR_DECAY = None
+    ```
+
+  - `BATCH_SIZE`、`N_EPOCHS`、`SEED`、`LEARNING_RATE`、`LR_DECAY` が異なる
+  - `BATCH_SIZE`、`N_EPOCHS` は学習時間と結果に直結しそう
+
+- 実行時間は？
+
+  - 0.624: 14,986 sec = 249 min = 4 hour
+  - 0.599: 7,895 sec = 131 min = 2 hour
+
+- `predict` 内の処理が微妙に異なる？
+
+  ```python
+  # 0.599
+  tmp_pred = torch.sigmoid(model(batch["X"].to(device))).cpu().numpy().squeeze()
+  # 0.624
+  tmp_pred = torch.sigmoid(model(torch.tensor(batch["X"]).float().to(device)).squeeze(1)).cpu().numpy().squeeze()
+  ```
+
+  - `torch.tensor` するタイミングが違うだけ。
+
+### 試したこと
+
+- v4: `SEED` を 12 から 12345 に変更(score: 0.525 , time: 7519s)
+  - `SEED` を変えただけで 0.599 -> 0.525 に。良いモデルではない？
+- v5: v4 + BraTS21ID = [109, 123, 709] を除く(score: 0.597, time: 7554s)
+- v9: v5 + Smooth Labeling 部分を削除 (score: 0.620, time: )
+- v10: v9 + 3D 画像の生成方法を修正(score: , time: )
+- v11: v10 + `BATCH_SIZE` を 4 から 6 に、`N_EPOCHS` を 10 から 16 に(score: ,time: )
+- v12: v11 + `LEARNING_RATE` を修正(score: , time: )
+- v13: v12 + `LR_DECAY`(学習率の調整) を導入(score: , time: )
+
+## 2021/09/30
+
+- ROC 曲線、AUC についておさらい。（[notebooks/210930_roc_auc.ipynb](notebooks/210930_roc_auc.ipynb)で試した）
+
+## 思ったこと
+
+- もっと試行錯誤を速く回せるコンペ or 環境じゃないと、初心者には厳しいな
