@@ -659,7 +659,7 @@
   - `SEED` を変えただけで 0.599 -> 0.525 に。良いモデルではない？
 - v5: v4 + BraTS21ID = [109, 123, 709] を除く(score: 0.597, time: 7554s)
 - v9: v5 + Smooth Labeling 部分を削除 (score: 0.620, time: )
-- v10: v9 + 3D 画像の生成方法を修正(score: , time: )
+- v10: v9 + 3D 画像の生成方法を修正(score: 0.616, time: )
 - v11: v10 + `BATCH_SIZE` を 4 から 6 に、`N_EPOCHS` を 10 から 16 に(score: ,time: )
 - v12: v11 + `LEARNING_RATE` を修正(score: , time: )
 - v13: v12 + `LR_DECAY`(学習率の調整) を導入(score: , time: )
