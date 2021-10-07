@@ -48,6 +48,7 @@
 | [[RSNA-MICCAI] Monai - ensemble](https://www.kaggle.com/mikecho/rsna-miccai-monai-ensemble/)                                                             | 2021/09/21 | PyTorch + DenseNet121 on [MONAI](https://github.com/Project-MONAI/MONAI)                                                                                                                           |
 | [RSNA-MICCAI competition](https://www.kaggle.com/d223chen/rsna-miccai-competition)                                                                       | Not yet    |                                                                                                                                                                                                    |
 | [[RF] Brain Tumor (FLAIR)](https://www.kaggle.com/hiroshisakiyama/rf-brain-tumor-flair)                                                                  | Not yet    |                                                                                                                                                                                                    |
+| [🧠Brain Tumor - Transfert Learning - FLAIR - Kfold](https://www.kaggle.com/michaelfumery/brain-tumor-transfert-learning-flair-kfold)                    | 2021/10/08 | ResNet50 + LSTM。MRI 画像を連続した 2 次元画像として扱い、連続性を LSTM で扱っている。                                                                                                             |
 
 ## Diary
 
@@ -660,13 +661,22 @@
 - v5: v4 + BraTS21ID = [109, 123, 709] を除く(score: 0.597, time: 7554s)
 - v9: v5 + Smooth Labeling 部分を削除 (score: 0.620, time: )
 - v10: v9 + 3D 画像の生成方法を修正(score: 0.616, time: )
-- v11: v10 + `BATCH_SIZE` を 4 から 6 に、`N_EPOCHS` を 10 から 16 に(score: ,time: )
+- v11: v10 + `BATCH_SIZE` を 4 から 6 に、`N_EPOCHS` を 10 から 16 に(score: 0.610,time: 12928s)
 - v12: v11 + `LEARNING_RATE` を修正(score: , time: )
 - v13: v12 + `LR_DECAY`(学習率の調整) を導入(score: , time: )
 
 ## 2021/09/30
 
 - ROC 曲線、AUC についておさらい。（[notebooks/210930_roc_auc.ipynb](notebooks/210930_roc_auc.ipynb)で試した）
+
+## 2021/10/08
+
+- [🧠Brain Tumor - Transfert Learning - FLAIR - Kfold | Kaggle](https://www.kaggle.com/michaelfumery/brain-tumor-transfert-learning-flair-kfold)
+- [LSTM ネットワークの概要 - Qiita](https://qiita.com/KojiOhki/items/89cd7b69a8a6239d67ca)
+  - RNN(リカレントニューラルネットワーク): 文脈など、前の入力層(複数)を推論に使える
+  - LSTM(Long Short Term Memory): RNN より長期で前の入力層を推論に使える
+- [ResNet (Residual Network) の実装 | AIdrops](https://www.bigdata-navi.com/aidrops/2611/)
+  - 層を飛び越えた結合(skip connection)を持つのが特徴
 
 ## 思ったこと
 
