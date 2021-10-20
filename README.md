@@ -10,6 +10,47 @@
 
   → 機械学習で MRI 画像から MGMT promoter methylation の有無を判定する
 
+## Summary
+
+### Result
+
+- 124th of 1555
+- [Monai - ensemble](https://www.kaggle.com/mstkmyhr/rsna-miccai-monai-ensemble?scriptVersionId=75210929)
+
+### Review
+
+色々とコンペ自体の問題が書かれてるけど、一番腑に落ちたのはこのコメント
+
+> The problem of this competition was a very small dataset. When you look at any tips regarding the minimum dataset size for a successful Deep Learning model, you can find numbers like 100k, 10k, 1k, depending on the problem. We had less then 600 samples, from which some of them are used as validation data during training. I had never faced a problem like this before (to train a model with not sufficient amount of data) and I agree that this could be a valuable lesson. What I learned is that with not enough data it is extremely difficult to succeed. Now I have this feeling that trying to tackle such a problem with so little amount of data might indeed be an inevitable failure.
+> https://www.kaggle.com/c/rsna-miccai-brain-tumor-radiogenomic-classification/discussion/279820#1550104
+
+「学習に使えるデータのサンプル数が少なすぎると以下の問題があり、コンペとしてどうなの？」と解釈した。
+
+- 学習がうまくいかない
+- 運で Leaderboard のスコアが高く出てしまう
+
+[12th Solution](https://www.kaggle.com/c/rsna-miccai-brain-tumor-radiogenomic-classification/discussion/279832)が公開されていた。  
+SegResNet、DenseNet121、DenseNet169 の ensemble。特に変わったことはしていなさそう。
+
+### Takeaways
+
+コンペの設計自体に問題はあるものの、勉強になったことはあるのでキーワードを上げておく（詳細は Daily に記載）
+
+- Google Colab の使い方
+- [Kaggle 日記の付け方](https://zenn.dev/fkubota/articles/3d8afb0e919b555ef068)
+- オフラインコンペで Python パッケージを使う方法
+- 解像度を変更する方法（`scipy.ndimage.zoom`、`cv2.resize`）
+- DICOM ファイルの扱い方
+- Numpy での多次元配列の扱い方（`np.stack`、`np.expand_dims`）
+- EfficientNet
+- ResNet
+- LSTM ネットワーク
+- ROC 曲線と AUC
+- Data Augmentation
+- OpenCV
+- TensorFlow、Keras （ざっくりな理解のみ、自分ではまだかけない）
+- PyTorch の使い方 （簡単なものなら自力で実装できそう）
+
 ## Diagram
 
 - Init
